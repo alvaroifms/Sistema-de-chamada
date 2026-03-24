@@ -1,33 +1,54 @@
-const header = document.querySelector(`header`)
-botaoLogo(header)
-const nav = document.createElement(`nav`)
-header.appendChild(nav)
-const main = document.querySelector(`main`)
-const article = document.querySelector(`article`)
-const footer = document.querySelector(`footer`)
+// Criando um estado simples (similar ao useState do React)
+let state = {
+    name: 'John Doe',
+};
 
-function botaoLogo(a) {
-    const spaceButton = document.createElement(`div`)
-    spaceButton.classList.add(`spaceButton`)
-    const button = document.createElement(`button`)
-    button.classList.add(`botao`)
-    const name = document.createElement(`div`)
-    name.id = `name`
-    const image = document.createElement(`img`)
-    image.src = `https://cdn-icons-png.flaticon.com/512/6681/6681204.png`
-    button.append(image)
-    button.addEventListener(`click`, () => {
-        
-    })
+const setState = (newState) => {
+    state = { ...state, ...newState };
+    render(App);  // Re-renderiza o app sempre que o estado mudar
+};
 
-    spaceButton.append(button, name)
-    a.appendChild(spaceButton)
-}
+// Componente Header com estado
+const Header = () => {
+    const header = document.createElement('header');
+    
+    // Usando o estado para exibir o nome
+    header.innerHTML = `<h1>Bem-vindo, ${state.name}!</h1>`;
 
-        let name2 = prompt(`Nome: `)
-        name.innerText = name2
-        let permisao = prompt(`Você deseja trocar a URL da imagem de perfil?`)
-        if (permisao == `sim` || permisao == `Sim`) {
-        let image2 = prompt(`Alterar URL da imagem: `)
-        image.src = image2
-        }
+    const button = document.createElement('button');
+    button.innerText = "Alterar nome";
+    button.addEventListener('click', () => {
+        const newName = prompt('Qual seu nome?');
+        setState({ name: newName });
+    });
+
+    header.appendChild(button);
+
+    return header;
+};
+
+// Componente App
+const App = () => {
+    const app = document.createElement("div");
+
+    // Usando o Header dentro do App
+    const header = Header();
+
+    const content = `
+    <main>
+        <article>Conteúdo principal</article>
+    </main>
+    <footer>
+        <p>Rodapé</p>
+    </footer>
+    `;
+
+    app.innerHTML = content;
+
+    // Adicionando o Header antes do main e footer
+    app.prepend(header);
+
+    return app;
+};
+
+export default App;
