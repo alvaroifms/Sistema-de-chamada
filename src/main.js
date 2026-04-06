@@ -1,13 +1,29 @@
-const root = document.querySelector("#root");
+// main.js
+import App from './App.js';
 
-import App from "App.js"; // Corrigido o caminho para o arquivo App.js
+const root = document.querySelector('#root');
 
-// Função para renderizar o componente
+// Estado da Rota
+window.location.path = window.location.hash.replace('#', '') || '/';
+
 const render = (Component) => {
-    const component = Component();
-    root.innerHTML = '';  // Limpa o conteúdo anterior
-    root.appendChild(component);
+    root.innerHTML = '';
+    const node = Component();
+    if (node) root.appendChild(node);
 };
 
-// Renderiza o componente App
+// Função global para navegar sem recarregar a página
+window.navigate = (path) => {
+    window.location.hash = path; // Usa o hash (#) para não precisar de servidor configurado
+    window.location.path = path;
+    render(App);
+};
+
+// Escuta o botão "voltar/avançar" do navegador
+window.onpopstate = () => {
+    window.location.path = window.location.hash.replace('#', '') || '/';
+    render(App);
+};
+
+window.renderApp = () => render(App);
 render(App);

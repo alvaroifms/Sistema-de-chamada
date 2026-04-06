@@ -1,53 +1,38 @@
-// Criando um estado simples (similar ao useState do React)
-let state = {
-    name: 'John Doe',
-};
+// App.js
+
+import Header from "./components/Header.js";
+import { Home } from "./pages/Home.js";
+import { Contact } from "./pages/Contact.js";
+import Article from "./components/Article.js";
+import LogoIF from "./components/LogoIF.js";
+
+let state = { name: "John Doe" };
 
 const setState = (newState) => {
     state = { ...state, ...newState };
-    render(App);  // Re-renderiza o app sempre que o estado mudar
+    window.renderApp();
 };
 
-// Componente Header com estado
-const Header = () => {
-    const header = document.createElement('header');
-    
-    // Usando o estado para exibir o nome
-    header.innerHTML = `<h1>Bem-vindo, ${state.name}!</h1>`;
-
-    const button = document.createElement('button');
-    button.innerText = "Alterar nome";
-    button.addEventListener('click', () => {
-        const newName = prompt('Qual seu nome?');
-        setState({ name: newName });
-    });
-
-    header.appendChild(button);
-
-    return header;
-};
-
-// Componente App
 const App = () => {
-    const app = document.createElement("div");
+    const app = document.createElement('div');
+    
+    // Header fixo em todas as páginas
+    app.appendChild(Header(state, setState));
 
-    // Usando o Header dentro do App
-    const header = Header();
+    // Lógica de Roteamento (Switch/Case)
+    const main = document.createElement('main');
+    const path = window.location.path;
 
-    const content = `
-    <main>
-        <article>Conteúdo principal</article>
-    </main>
-    <footer>
-        <p>Rodapé</p>
-    </footer>
-    `;
+    if (path === '/' || path === '/home') {
+        main.appendChild(Home(state));
+    } else if (path === '/contato') {
+        main.appendChild(Contact());
+    } else {
+        main.innerHTML = '<h1>404 - Página não encontrada</h1>';
+    }
 
-    app.innerHTML = content;
-
-    // Adicionando o Header antes do main e footer
-    app.prepend(header);
-
+    app.appendChild(main);
+    main.append(LogoIF(), Article())
     return app;
 };
 
