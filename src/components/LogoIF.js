@@ -1,30 +1,10 @@
 const LogoIF = () => {
     const LogoIF = document.createElement("div");
     LogoIF.classList.add("LogoIF");
-
-    LogoIF.innerHTML = `<table border="1">
-    <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>   
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>   
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>   
-  </tr>
-</table>
-`
+    const image = document.createElement("img")
+    image.classList.add("logoif")
+    image.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Instituto_Federal_Marca_2015.svg/960px-Instituto_Federal_Marca_2015.svg.png"
+    LogoIF.appendChild(image)
 
     return LogoIF;
 }

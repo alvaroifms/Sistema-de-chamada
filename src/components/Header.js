@@ -13,23 +13,31 @@ const Header = (state, setState) => {
     const nav = document.createElement('nav');
 
     const homeBtn = document.createElement('button');
+    homeBtn.classList.add("button")
     homeBtn.innerText = "Home";
     homeBtn.onclick = () => navigate('/home');
 
+    const loginBtn = document.createElement('button');
+    loginBtn.classList.add("button")
+    loginBtn.innerText = "Login";
+    loginBtn.onclick = () => navigate('/login');
+
     const contactBtn = document.createElement('button');
-    contactBtn.innerText = "Contato";
-    contactBtn.onclick = () => navigate('/contato');
+    contactBtn.classList.add("button")
+    contactBtn.innerText = "Presença";
+    contactBtn.onclick = () => navigate('/presenca');
 
     const changeBtn = document.createElement('button');
+    changeBtn.classList.add("button")
     changeBtn.innerText = "Alterar nome";
     changeBtn.onclick = () => {
         const newName = prompt("Qual seu nome?");
         if (newName) setState({ name: newName });
+        localStorage.setItem("nomeUsuario", newName);
+
     };
 
-    nav.appendChild(homeBtn);
-    nav.appendChild(contactBtn);
-    nav.appendChild(changeBtn);
+    nav.append(homeBtn, loginBtn, contactBtn, changeBtn);
 
     apresentation.append(Icon(), title);
 

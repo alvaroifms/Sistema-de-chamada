@@ -7,22 +7,26 @@
 }
 
 body {
+    height: 100vh;
     background-color: var(--bg-dark);
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--light);
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
 }
 
 /* HEADER */
 header {
     width: 100%;
-    height: 10vh;
+    height: 7vh;
     background-color: #ffffffcc; /* leve transparência */
     backdrop-filter: blur(6px);
     border-bottom: 1px solid var(--detail-yellow);
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 10px 20px;
 }
 
@@ -36,7 +40,7 @@ header h1 {
 nav {
     display: flex;
     gap: 10px;
-    padding: 10px 0;
+    padding: 10px 80px;
     background-color: transparent;
 }
 
@@ -44,6 +48,9 @@ nav {
 button {
     background-color: var(--detail-red);
     color: #1e293b;
+    font-size: 15px;
+    width: 120px;
+    height: 50px;
     border: none;
     padding: 8px 14px;
     border-radius: 8px;
@@ -54,6 +61,16 @@ button {
 button:hover {
     opacity: 0.8;
     transform: scale(1.03);
+}
+
+.buttonP{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.Falta{
+    background-color: black;
 }
 
 .apresentation {
@@ -75,15 +92,145 @@ main {
     min-height: 70vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     gap: 30px;
     padding: 20px;
 }
 
+.tabela{
+    width: 100%;
+    height: 100%;
+    background-color: ;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: var(--bg-accent);
+    border: 5px solid var(--detail-yellow);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex; /* Transforma a tabela em flex para alinhar as colunas */
+}
+
+tr {
+    display: flex;
+    flex-direction: column; /* Faz os itens da linha ficarem um em cima do outro */
+    flex: 1; /* Faz as colunas dividirem o espaço igualmente */
+}
+
+th, td {
+    padding: 20px;
+    border-bottom: 1px solid var(--detail-yellow);
+    border-right: 1px solid var(--detail-yellow);
+    text-align: center;
+}
+
+th {
+    background-color: var(--detail-red);
+    color: #1e293b;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    min-height: 80px; /* Garante que os cabeçalhos tenham a mesma altura */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+td {
+    color: var(--light);
+    min-height: 80px; /* Altura para os dados de presença */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Remove bordas do último lado para não duplicar com o container */
+tr:last-child th, tr:last-child td {
+    border-right: none;
+}
+
+tr th:last-child, tr td:last-child {
+    border-bottom: none;
+}
+
+
+tr:nth-child(even) {
+    background-color: #fcfdfe; 
+}
+
+tr:hover {
+    background-color: var(--detail-yellow);
+    transition: 0.2s;
+}
+
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+
+.logoif{
+ width: 600px;
+ height: 700px;
+}
+
+.LogoIF{
+    margin-right: 250px;
+}
+
+.icone{
+    width: 20vh;
+    height: 20vh;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+.loginCard form{
+    height: 70vh;
+    width: 40vh;
+    box-shadow: 12px 12px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+}
+
+.info{
+    width: 22vh;
+    border: 1px solid #5674fa;
+    color: #5674fa;
+    font-weight: 500;
+    font-family: sans-serif;   
+}
+
+input::placeholder {
+    color: var(--light);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    opacity: 0.7;
+}
+
+form input {
+    padding: 12px;
+    border: 1px solid var(--detail-yellow);
+    border-radius: 8px;
+    outline: none;
+    color: var(--light);
+}
+
+
+
+
+
+
+
 /* ARTICLE (CARD GRANDE) */
 article {
     width: 300px;
-    height: 350px;
+    height: 650px;
     background-color: var(--bg-accent);
     border: 1px solid var(--detail-yellow);
     box-shadow: 0 6px 16px rgba(0,0,0,0.04);
@@ -110,4 +257,52 @@ article:hover {
 /* TEXTO */
 h2, p {
     color: var(--light);
+}
+
+.botaoVoltar {
+    position: absolute;
+    top: 760px;    /* Distância do topo do card */
+    left: 800px;   /* Distância da esquerda do card */
+    
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px; /* Diminuí um pouco para o texto caber melhor no círculo */
+    color: #1e293b;
+    background-color: var(--detail-red); /* Cor que você definiu antes */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    z-index: 10; /* Garante que ele fique por cima de tudo */
+}
+
+.botaoVoltar:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+.spaceButtons{
+    width: 100%;
+    margin-top: 80px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+
+}
+
+.cadastrar {
+    color: #0066cc;               
+    text-decoration: none;         
+    font-weight: 500;            
+    transition: all 0.3s ease;   
+    font-family: sans-serif;   
+    padding-left: 5px;
+}
+
+.cadastrar:hover {
+    color: #004a94;    
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }

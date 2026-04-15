@@ -1,13 +1,15 @@
-const Article = () => {
-    const article = document.createElement('article');
+import {Home} from "../pages/Home.js";
 
-    article.innerHTML = `
-        <h2>Card</h2>
-        <div class="card"></div>
-        <p>Conteúdo de exemplo aqui</p>
+
+const Article = (state) => {
+    const article = document.createElement('article');
+    article.appendChild(Home(state))
+    article.innerHTML += `
+
         <button class="botao">Ação</button>
     `;
 
+    
     return article;
 }
 
