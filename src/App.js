@@ -2,11 +2,14 @@
 
 import Header from "./components/Header.js";
 import Login  from "./pages/Login.js";
-import { FiqueAtento } from "./pages/Presenca.js";
+import { Presenca } from "./pages/Presenca.js";
 import Article from "./components/Article.js";
 import LogoIF from "./components/LogoIF.js";
 import Cadastro from "./pages/Cadastro.js";
 import buttonP from  "./components/buttonP.js";
+import EspacoPresenca from "./components/EsapacoPresenca.js";
+import Legenda from "./components/Legenda.js";
+import FiqueAtento from "./components/FiqueAtento.js";
 
 let state = { name: localStorage.getItem("nomeUsuario") ? localStorage.getItem("nomeUsuario") : "Usuário" };
 
@@ -18,10 +21,6 @@ const setState = (newState) => {
     const App = () => {
     const app = document.createElement('div');
     
-    // Header fixo em todas as páginas
-    
-
-    // Lógica de Roteamento (Switch/Case)
     const main = document.createElement('main');
     const path = window.location.path;
 
@@ -31,6 +30,7 @@ const setState = (newState) => {
     switch (path) {
         case '/':
         case '/home':
+            main.classList.remove(`coluna`)
             app.appendChild(Header(state, setState));
             main.appendChild(Article(state));
             main.append(LogoIF());
@@ -38,14 +38,22 @@ const setState = (newState) => {
 
         case '/presenca':
             app.appendChild(Header(state, setState));
-            main.appendChild(FiqueAtento(buttonP()));
+            const div = document.createElement(`div`)
+            div.classList.add(`ordem`)
+            let dia = 21
+            let mes = 8
+            div.append(Legenda(),Presenca(dia, mes))
+            main.append(FiqueAtento(dia,mes),div);
+            main.classList.add(`distancia`)
             break;
 
         case '/login':
+            main.classList.remove(`coluna`)
             main.appendChild(Login(navigate)); 
         break;
 
         case '/cadastrar':
+            main.classList.remove(`coluna`)
             main.appendChild(Cadastro(navigate));
         break;
 

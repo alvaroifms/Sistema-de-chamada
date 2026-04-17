@@ -9,13 +9,14 @@
 body {
     height: 100vh;
     background-color: var(--bg-dark);
-    margin: 0;
+    margin: 0px;
+    padding: 0px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--light);
     display: flex;
     flex-direction: column;
 
-    justify-content: center;
+    justify-content: space-between;
 }
 
 /* HEADER */
@@ -97,10 +98,14 @@ main {
     padding: 20px;
 }
 
+.distancia{
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .tabela{
     width: 100%;
     height: 100%;
-    background-color: ;
 }
 
 table {
@@ -112,49 +117,61 @@ table {
     border: 5px solid var(--detail-yellow);
     border-radius: 12px;
     overflow: hidden;
-    display: flex; /* Transforma a tabela em flex para alinhar as colunas */
+    display: flexbox;
+}
+
+.espacoPresenca{
+    border: 1px solid black;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%
+}
+
+.clicado{
+    background-color: #5674fa;
+}
+
+.ordem{
+    
+}
+
+.Legenda{
+    width: 80%;
+    height: 20vh;
+    margin: 20px auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: var(--bg-accent);
+    border: 5px solid var(--detail-yellow);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+
 }
 
 tr {
+    width: ;
     display: flex;
-    flex-direction: column; /* Faz os itens da linha ficarem um em cima do outro */
-    flex: 1; /* Faz as colunas dividirem o espaço igualmente */
+    min-width: 200px; /* Garante que a coluna não fique esmagada */
+     
+}
+
+th{
+    background-color:#a5b4fc ;
 }
 
 th, td {
+    width: 20%;
     padding: 20px;
     border-bottom: 1px solid var(--detail-yellow);
     border-right: 1px solid var(--detail-yellow);
-    text-align: center;
+    box-sizing: border-box;
 }
 
-th {
-    background-color: var(--detail-red);
-    color: #1e293b;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    min-height: 80px; /* Garante que os cabeçalhos tenham a mesma altura */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-td {
-    color: var(--light);
-    min-height: 80px; /* Altura para os dados de presença */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-/* Remove bordas do último lado para não duplicar com o container */
-tr:last-child th, tr:last-child td {
-    border-right: none;
-}
-
-tr th:last-child, tr td:last-child {
-    border-bottom: none;
-}
 
 
 tr:nth-child(even) {
@@ -173,8 +190,8 @@ tr:last-child td {
 
 
 .logoif{
- width: 600px;
- height: 700px;
+    width: 600px;
+    height: 700px;
 }
 
 .LogoIF{
@@ -196,6 +213,9 @@ tr:last-child td {
     flex-direction: column;
     align-items: center;
     justify-content: end;
+    position: absolute;
+    top: 15%;
+    left: 40%;
 }
 
 .info{
@@ -230,14 +250,16 @@ form input {
 /* ARTICLE (CARD GRANDE) */
 article {
     width: 300px;
-    height: 650px;
+    height: 680px;
     background-color: var(--bg-accent);
     border: 1px solid var(--detail-yellow);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+    box-shadow: 10px 10px 1px rgba(2, 2, 2, 0.04);
     border-radius: 16px; /* mais arredondado */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
+    gap: 5px;
     padding: 20px;
     transition: 0.3s;
 }
@@ -246,23 +268,50 @@ article:hover {
     transform: translateY(-5px);
 }
 
+.cardF{
+    border: 5px solid var(--detail-yellow);
+    border-radius: 16px;
+    height: 25%;
+    width: 90%;
+}
+
+.cardF:hover{
+    transform: translateY(-5px);
+}
+
+
+
 /* CARD INTERNO */
 .card {
     width: 100%;
     height: 120px;
-    background-color: #e0f2fe; /* azul bebê */
+    background-color: #e0f2fe; 
     border-radius: 10px;
 }
 
 /* TEXTO */
+
+
+h3{
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+}
+
+
+p{
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+
 h2, p {
     color: var(--light);
 }
 
 .botaoVoltar {
     position: absolute;
-    top: 760px;    /* Distância do topo do card */
-    left: 800px;   /* Distância da esquerda do card */
+    top: 92%;    /* Distância do topo do card */
+    left: 4%;   /* Distância da esquerda do card */
     
     width: 40px;
     height: 40px;

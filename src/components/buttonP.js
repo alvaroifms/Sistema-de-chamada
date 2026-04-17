@@ -1,23 +1,20 @@
 const buttonP = () => {
-    let presente = 0; // Booleano para controle
-    const presenca = document.createElement("button");
-    presenca.classList.add("buttonP");
+  const presenca = document.createElement("button");
+  
+  presenca.classList.add("buttonP");
+  presenca.textContent = "Presente"; 
 
-    presenca.addEventListener(`click`, ()=>{
-    // Inverte o valor de TRUE para FALSE e vice-versa
+  presenca.addEventListener("click", () => {
 
-        if (presente === 0) {
-            presenca.classList.remove("buttonP");
-            presenca.classList.add("Falta");
-            presente++
-        } else {
-            presenca.classList.remove("Falta");
-            presenca.classList.add("buttonP");
-            presente--
+    const estaFaltando = presenca.classList.toggle("Falta");
+    
+    presenca.classList.toggle("buttonP", !estaFaltando);
 
-        }
-    })
-    return presenca;
-}
+    presenca.textContent = estaFaltando ? "Faltou" : "Presente";
+  });
+
+
+  return presenca;
+};
 
 export default buttonP;
