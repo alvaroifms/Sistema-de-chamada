@@ -12,6 +12,8 @@ const FiqueAtento = (a, b) =>{
             card.innerHTML = `<h2>${a}/${b}</h2>
             <p>Informações da fase:</p>`
         }
+
+        card.onclick = () => navigate(`/fiqueatento`)
         article.append(card)
     }
 

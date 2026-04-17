@@ -10,6 +10,7 @@ import buttonP from  "./components/buttonP.js";
 import EspacoPresenca from "./components/EsapacoPresenca.js";
 import Legenda from "./components/Legenda.js";
 import FiqueAtento from "./components/FiqueAtento.js";
+import Informacoes from "./pages/Informacoes.js";
 
 let state = { name: localStorage.getItem("nomeUsuario") ? localStorage.getItem("nomeUsuario") : "Usuário" };
 
@@ -37,11 +38,12 @@ const setState = (newState) => {
             break;
 
         case '/presenca':
+            main.classList.remove(`coluna`)
             app.appendChild(Header(state, setState));
             const div = document.createElement(`div`)
             div.classList.add(`ordem`)
-            let dia = 21
-            let mes = 8
+            const dia = 5
+            const mes = 8
             div.append(Legenda(),Presenca(dia, mes))
             main.append(FiqueAtento(dia,mes),div);
             main.classList.add(`distancia`)
@@ -55,6 +57,14 @@ const setState = (newState) => {
         case '/cadastrar':
             main.classList.remove(`coluna`)
             main.appendChild(Cadastro(navigate));
+        break;
+
+        case `/fiqueatento`:
+            main.classList.add(`coluna`)
+        for (let i = 0; i < 5; i++) {
+           main.appendChild(Informacoes());
+        }
+        
         break;
 
     default:
