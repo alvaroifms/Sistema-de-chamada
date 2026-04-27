@@ -42,8 +42,8 @@ const setState = (newState) => {
             app.appendChild(Header(state, setState));
             const div = document.createElement(`div`)
             div.classList.add(`ordem`)
-            const dia = 5
-            const mes = 8
+            const dia = 4
+            const mes = 10
             div.append(Legenda(),Presenca(dia, mes))
             main.append(FiqueAtento(dia,mes),div);
             main.classList.add(`distancia`)
@@ -60,6 +60,7 @@ const setState = (newState) => {
         break;
 
         case `/fiqueatento`:
+            app.appendChild(Header(state, setState));
             main.classList.add(`coluna`)
         for (let i = 0; i < 5; i++) {
            main.appendChild(Informacoes());

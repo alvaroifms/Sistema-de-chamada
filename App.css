@@ -29,6 +29,8 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
+    position:sticky;
+    top: 0px;
 }
 
 header h1 {
@@ -108,8 +110,8 @@ main {
 
 
 .TamanhoImagem{
-    height: 100%;
-    width: 20%;
+    height: 80%;
+    width: 35%;
     border-collapse: separate;
     border-spacing: 0;
     border: 1px solid black;
@@ -119,11 +121,12 @@ main {
 
 }
 .container{
-    width: 60%;
-    height: 200px;
+    width: 100%;
+    height: 800px;
     /* background-color: red; */
     display: flex;
-    padding-left: 20%;
+    justify-content: space-between;
+    align-items: center;
     gap: 10px;
 }
 
@@ -182,13 +185,14 @@ table {
 
 .Legenda2{
     width: 50%;
-    height: 100%;
+    height: 80%;
 
     border: 1px solid black;
     background-color: var(--bg-accent);
     border: 5px solid var(--detail-yellow);
     border-radius: 12px;
     overflow: hidden;
+    margin-right: 70px;
     display: flex;
     flex-direction: column;
     align-items: center
@@ -319,10 +323,29 @@ article:hover {
     width: 90%;
 }
 
+/* .cardF2{
+    border: 5px solid var(--detail-yellow);
+    border-radius: 16px;
+    height: 25%;
+    width: 90%;
+} */
+
 .cardF:hover{
     transform: translateY(-5px);
 }
+/* .cardF2:hover{
+    transform: translateY(-5px);
+} */
 
+.spacecads{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
 
 
 /* CARD INTERNO */
