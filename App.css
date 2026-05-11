@@ -28,6 +28,7 @@ header {
     border-bottom: 1px solid var(--detail-yellow);
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 10px 20px;
     position:sticky;
     top: 0px;
@@ -324,19 +325,20 @@ article:hover {
     padding-left: 10px;
 }
 
-/* .cardF2{
+.cardF2{
     border: 5px solid var(--detail-yellow);
     border-radius: 16px;
     height: 25%;
     width: 90%;
-} */
+    padding-left: 10px;
+}
 
 .cardF:hover{
     transform: translateY(-5px);
 }
-/* .cardF2:hover{
+.cardF2:hover{
     transform: translateY(-5px);
-} */
+}
 
 .spacecads{
     width: 100%;

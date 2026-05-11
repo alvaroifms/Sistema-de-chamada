@@ -25,16 +25,15 @@ export const Presenca = (a, b) => {
     </tr>
     `;
 
-    // Seleciona todas as células
+
     const tds = tabela.querySelectorAll(`.td`);
 
-    // Percorre cada uma das 4 células encontradas
+
     tds.forEach((celula) => {
         const espacoPresenca = document.createElement(`div`);
         espacoPresenca.classList.add(`espacoPresenca`);
-        // espacoPresenca.classList.add(`clicado`);
+  
         
-        // Adiciona a div dentro da célula atual do loop
         celula.append(espacoPresenca);
     });
 
