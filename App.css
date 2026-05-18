@@ -425,3 +425,122 @@ h2, p {
     text-decoration: underline;
     text-underline-offset: 4px;
 }
+
+/* ========================= */
+/* RESPONSIVIDADE (MOBILE)   */
+/* ========================= */
+@media (max-width: 600px) {
+/* ===== HEADER ===== */
+    header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    /* ===== NAV (BOTÕES VIRAM UMA BARRA FIXA EMBAIXO) ===== */
+    nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        background-color: var(--bg-accent);
+        border-top: 1px solid var(--detail-yellow);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        z-index: 1000;
+        padding: 5px;
+    }
+
+    /* BOTÕES AGORA SÃO ÍCONES (SEM QUEBRAR HTML) */
+    button {
+        width: 80px;
+        height: 60px;
+        font-size: 12px;
+        border-radius: 12px;
+        padding: 5px;
+    }
+
+    /* EVITA QUE O CONTEÚDO FIQUE ESCONDIDO ATRÁS DA NAV */
+    body {
+        padding-bottom: 80px;
+    }
+
+    /* ===== LOGIN CENTRALIZADO ===== */
+    .loginCard {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 90vh;
+    }
+
+    .loginCard form {
+        position: static;
+        width: 90%;
+        max-width: 320px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* ===== LOGO ===== */
+    .logoif {
+        width: 100%;
+        
+        margin: 0 auto;
+        display: block;
+    }
+
+    .LogoIF {
+        /* background-color: red; */
+        width: 90%;
+        height: 5%;
+        margin-left: 260px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* ===== TABELA (SEM QUEBRAR, MAS CABENDO MELHOR) ===== */
+    .tabela {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        min-width: unset; /* REMOVE aquele tamanho gigante */
+        font-size: 0.75rem;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+
+    /* MANTÉM FORMATO ORIGINAL */
+    tr {
+        display: table-row;
+    }
+
+    /* ===== AJUSTES GERAIS ===== */
+    main {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .apresentation {
+        justify-content: center;
+    }
+
+
+}
+
+
